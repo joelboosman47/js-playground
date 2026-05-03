@@ -11,7 +11,7 @@ const nums = [10, 1, 21, 2, 100, 3];
 const defaultSorted = nums.sort();
 console.log("Default sort (broken for numbers):", defaultSorted);
 // You might expect: [1, 2, 3, 10, 21, 100]
-// But you'll get:   ???
+// But you'll get:   [1, 10, 100, 2, 21, 3]
 
 // --- Part 2: Your Challenge ---
 // Fix the sort so the numbers come out in the correct order.
@@ -25,13 +25,13 @@ console.log("Default sort (broken for numbers):", defaultSorted);
 const nums2 = [10, 1, 21, 2, 100, 3];
 
 function sortAscending(arr) {
-  // Your code here! Return the sorted array.
-  return arr.sort();
+	// Your code here! Return the sorted array.
+	return arr.sort((a, b) => a - b);
 }
 
 function sortDescending(arr) {
-  // Bonus: sort in descending order (largest first)
-  return arr.sort();
+	// Bonus: sort in descending order (largest first)
+	return arr.sort((a, b) => b - a);
 }
 
 console.log("\nAscending  (your fix):", sortAscending(nums2));
@@ -47,15 +47,16 @@ Descending: [100, 21, 10, 3, 2, 1]
 // Now sort this array of products by price, cheapest first.
 
 const products = [
-  { name: "Monitor",  price: 200 },
-  { name: "Mouse",    price: 25  },
-  { name: "Laptop",   price: 999 },
-  { name: "Keyboard", price: 50  },
+	{ name: "Monitor", price: 200 },
+	{ name: "Mouse", price: 25 },
+	{ name: "Laptop", price: 999 },
+	{ name: "Keyboard", price: 50 },
 ];
 
 function sortByPrice(products) {
-  // Your code here!
-  return products;
+	// Your code here!
+	products.sort((a, b) => a.price - b.price);
+	return products;
 }
 
 console.log("\nProducts sorted by price:");
