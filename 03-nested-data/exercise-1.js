@@ -11,36 +11,36 @@
 // Some fields are missing or null — this is completely normal in real apps.
 
 const users = [
-  {
-    id: 1,
-    name: "Alice",
-    address: {
-      city: "Tel Aviv",
-      zip: "61000",
-    },
-    subscription: {
-      plan: "pro",
-      renewsOn: "2025-12-01",
-    },
-  },
-  {
-    id: 2,
-    name: "Bob",
-    address: null,           // Bob hasn't set an address
-    subscription: {
-      plan: "free",
-      renewsOn: null,        // Free plan has no renewal date
-    },
-  },
-  {
-    id: 3,
-    name: "Charlie",
-    address: {
-      city: "Haifa",
-      zip: "31000",
-    },
-    // Charlie has no subscription object at all
-  },
+	{
+		id: 1,
+		name: "Alice",
+		address: {
+			city: "Tel Aviv",
+			zip: "61000",
+		},
+		subscription: {
+			plan: "pro",
+			renewsOn: "2025-12-01",
+		},
+	},
+	{
+		id: 2,
+		name: "Bob",
+		address: null, // Bob hasn't set an address
+		subscription: {
+			plan: "free",
+			renewsOn: null, // Free plan has no renewal date
+		},
+	},
+	{
+		id: 3,
+		name: "Charlie",
+		address: {
+			city: "Haifa",
+			zip: "31000",
+		},
+		// Charlie has no subscription object at all
+	},
 ];
 
 // --- Challenge 1: Safe Property Access ---
@@ -51,8 +51,7 @@ const users = [
 //      user.address.city → TypeError: Cannot read properties of null
 
 function getCity(user) {
-  // Hint: user?.address?.city ?? "Unknown city"
-  return "";
+	return user?.address?.city ?? "Unknown city";
 }
 
 // --- Challenge 2: Safe Nested Access ---
@@ -60,7 +59,7 @@ function getCity(user) {
 // If there is no subscription at all, return "no subscription".
 
 function getPlan(user) {
-  return "";
+	return user?.subscription?.plan ?? "no subscription";
 }
 
 // --- Challenge 3: Safe + Formatted ---
@@ -70,9 +69,9 @@ function getPlan(user) {
 // "Charlie | Plan: no subscription | City: Haifa"
 
 function getUserSummary(user) {
-  const city = getCity(user);
-  const plan = getPlan(user);
-  return `${user.name} | Plan: ${plan} | City: ${city}`;
+	const city = getCity(user);
+	const plan = getPlan(user);
+	return `${user.name} | Plan: ${plan} | City: ${city}`;
 }
 
 // --- Run all three ---
